@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chess</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: '標楷體', serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vlr {
+            writing-mode: vertical-lr;
+            font-size: 1.4rem;
+        }
+
+        .wrap {
+            width: 380px;
+            height: 420px;
+            border: 1px solid #333;
+            padding: 30px 35px;
+            margin: 0 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 10px;
+        }
+
+        table td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #333;
+            position: relative;
+
+        }
+
+        .black div,
+        .red div {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+
+        }
+
+        .black div {
+            left: -15px;
+            top: -15px;
+        }
+
+        .rt {
+            transform: translate(38px, 0);
+        }
+
+        .red div {
+            color: red;
+            left: -15px;
+            bottom: -15px;
+        }
+
+        .rb {
+            transform: translate(38px, 0);
+        }
+
+        .center span {
+            font-size: 2rem;
+            padding: 0 42px;
+        }
+
+        .slash-rt {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            line-height: 120px;
+            background: linear-gradient(135deg, transparent 49%, #000 49%, transparent 51%);
+        }
+
+        #slash-rt {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            line-height: 120px;
+            background: linear-gradient(135deg, transparent 49%, #000 49%, transparent 51%);
+            left: 0;
+            top: 0;
+            border-radius: 0%;
+            border-width: 0;
+        }
+
+        .slash-rb {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            line-height: 120px;
+            background: linear-gradient(45deg, transparent 49%, #000 49%, transparent 51%);
+        }
+
+        #slash-rb {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            line-height: 120px;
+            background: linear-gradient(45deg, transparent 49%, #000 49%, transparent 51%);
+            left: 0;
+            top: 0;
+            border-radius: 0%;
+            border-width: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="vlr">棋盤裡，車無輪馬無韁，叫聲將軍提防提防</p>
+        <div class="wrap">
+            <table>
+                <tr class="black">
+                    <td>
+                        <div>車</div>
+                    </td>
+                    <td>
+                        <div>馬</div>
+                    </td>
+                    <td>
+                        <div>象</div>
+                    </td>
+                    <td>
+                        <div id="slash-rb"></div>
+                        <div>士</div>
+                    </td>
+                    <td>
+                        <div id="slash-rt"></div>
+                        <div>將</div>
+                    </td>
+                    <td>
+                        <div>士</div>
+                    </td>
+                    <td>
+                        <div>象</div>
+                    </td>
+                    <td>
+                        <div>馬</div>
+                        <div class="rt">車</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="slash-rt"></div>
+                    </td>
+                    <td>
+                        <div class="slash-rb"></div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="black">
+                    <td></td>
+                    <td>
+                        <div>包</div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div>包</div>
+                    </td>
+                </tr>
+                <!-- 對角線 -->
+                <tr class="black">
+                    <td>
+                        <div>卒</div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div>卒</div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div>卒</div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div>卒</div>
+                    </td>
+                    <td>
+                        <div class="rt">卒</div>
+                    </td>
+                </tr>
+                <tr class="center">
+                    <td colspan="8">
+                        <span>楚河</span>
+                        <span>漢界</span>
+                    </td>
+                </tr>
+                <tr class="red">
+                    <td>
+                        <div>兵</div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div>兵</div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div>兵</div>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <div>兵</div>
+                    </td>
+                    <td>
+                        <div class="rb">兵</div>
+                    </td>
+                </tr>
+                <tr class="red">
+                    <td></td>
+                    <td>
+                        <div>炮</div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div>炮</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="slash-rb"></div>
+                    </td>
+                    <td>
+                        <div class="slash-rt"></div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="red">
+                    <td>
+                        <div>俥</div>
+                    </td>
+                    <td>
+                        <div>俥</div>
+                    </td>
+                    <td>
+                        <div>相</div>
+                    </td>
+                    <td>
+                        <div id="slash-rt"></div>
+                        <div>仕</div>
+                    </td>
+                    <td>
+                        <div id="slash-rb"></div>
+                        <div>帥</div>
+                    </td>
+                    <td>
+                        <div>仕</div>
+                    </td>
+                    <td>
+                        <div>相</div>
+                    </td>
+                    <td>
+                        <div>傌</div>
+                        <div class="rb">俥</div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <p class="vlr">圖畫裡，龍不吟虎不嘯，小小書僮可笑可笑</p>
+    </div>
+</body>
+
+</html>
